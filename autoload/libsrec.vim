@@ -7,6 +7,8 @@
 " 00.01.10 |       29.03.10  | BugFix, in libsrec#CrCS()
 "          |                 | leading Zeros in Result
 " 00.02.00 |       29.03.10  | Fun added, MkS5()
+" 00.02.10 |       15.06.10  | BugFix, in libsrec#CrCS()
+"          |                 | wrong Source for CS
 
 " create ByteCount
 fun libsrec#CrBC(line)
@@ -200,7 +202,7 @@ fun libsrec#MkS5(line)
   
   unlet s:hxva
   
-  let s:srec = s:srec . s:srad . libsrec#CrCS(s:srec)
+  let s:srec = s:srec . s:srad . libsrec#CrCS(s:srec . s:srad)
   
   unlet s:srad
   unlet s:srco
